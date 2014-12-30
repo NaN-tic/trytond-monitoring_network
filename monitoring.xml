@@ -1,0 +1,27 @@
+<tryton>
+    <data>
+        <record model="product.uom" id="uom_millisecond">
+            <field name="name">Millisecond</field>
+            <field name="symbol">ms</field>
+            <field name="category" ref="product.uom_cat_time"/>
+            <field name="factor" eval="round(1.0 / 3600000, 12)"/>
+            <field name="rate" eval="3600000"/>
+        </record>
+
+        <record model="monitoring.check.type" id="check_ping">
+            <field name="name">PING</field>
+            <field name="internal_name">check_ping</field>
+        </record>
+        <record model="monitoring.result.type" id="result_ping_status">
+            <field name="name">PING Status</field>
+            <field name="internal_name">ping_status</field>
+            <field name="type">char</field>
+        </record>
+        <record model="monitoring.result.type" id="result_ping_average">
+            <field name="name">PING Average</field>
+            <field name="internal_name">ping_average</field>
+            <field name="type">float</field>
+            <field name="uom" ref="uom_millisecond"/>
+        </record>
+    </data>
+</tryton>
