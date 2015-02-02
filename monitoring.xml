@@ -23,5 +23,25 @@
             <field name="type">float</field>
             <field name="uom" ref="uom_millisecond"/>
         </record>
+
+        <record model="monitoring.check.type" id="check_tryton">
+            <field name="name">Tryton</field>
+            <field name="internal_name">check_tryton</field>
+        </record>
+        <record model="monitoring.result.type" id="result_tryton_status">
+            <field name="name">Tryton Status</field>
+            <field name="internal_name">tryton_status</field>
+            <field name="type">char</field>
+        </record>
+
+        <record model="monitoring.check.type" id="check_open_ports">
+            <field name="name">NMAP Open Ports</field>
+            <field name="internal_name">check_open_ports</field>
+        </record>
+        <record model="monitoring.result.type" id="result_open_ports">
+            <field name="name">NMAP Open Ports Status</field>
+            <field name="internal_name">open_ports_status</field>
+            <field name="type">char</field>
+        </record>
     </data>
 </tryton>
