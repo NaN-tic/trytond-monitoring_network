@@ -59,14 +59,6 @@ class CheckPlan:
         for url in urls:
             server = ServerProxy(url, verbose=0)
             try:
-                if sys.version_info[:3] < (2, 7, 9):
-                    server = xmlrpclib.ServerProxy(uri, allow_none=True)
-                else:
-                    ssl_context = ssl.create_default_context()
-                    ssl_context.check_hostname = False
-                    ssl_context.verify_mode = ssl.CERT_NONE
-                    server = xmlrpclib.ServerProxy(uri, allow_none=True,
-                        context=ssl_context)
                 databases = server.common.db.list(None, None)
             except Exception, e:
                 res.append({
