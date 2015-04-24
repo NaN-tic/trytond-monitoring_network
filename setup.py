@@ -47,6 +47,7 @@ setup(name='%s_%s' % (PREFIX, MODULE),
     package_dir={'trytond.modules.%s' % MODULE: '.'},
     packages=[
         'trytond.modules.%s' % MODULE,
+        'trytond.modules.%s.jsonrpclib' % MODULE,
         'trytond.modules.%s.tests' % MODULE,
         ],
     package_data={

@@ -5,7 +5,7 @@ import ssl
 import subprocess
 import json
 import nmap
-from jsonrpclib import Server as ServerProxy
+from .jsonrpclib import Server as ServerProxy
 from trytond.pool import PoolMeta
 
 import pingparser
