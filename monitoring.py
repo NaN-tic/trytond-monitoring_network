@@ -57,7 +57,14 @@ class CheckPlan:
         urls = urls.split()
         res = []
         for url in urls:
-            server = ServerProxy(url, verbose=0)
+            try:
+                # Works starting at python 2.7.9
+                ssl_context = ssl.create_default_context()
+                ssl_context.check_hostname = False
+                ssl_context.verify_mode = ssl.CERT_NONE
+                server = ServerProxy(url, context=ssl_context)
+            except:
+                server = ServerProxy(url, verbose=0)
             try:
                 databases = server.common.db.list(None, None)
             except Exception, e:
